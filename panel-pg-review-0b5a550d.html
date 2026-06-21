@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赏金女王 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: 'Times New Roman', 'Noto Serif SC', Georgia, 'Songti SC', serif;
+            color: #2a2a28;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* 杂志横幅 */
+        .hero {
+            background: #ecebe5;
+            padding: 2.8rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid #dcd9d1;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            color: #3b3b36;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6b6962;
+            border-bottom: 1px dashed #c7c3b9;
+            padding-bottom: 0.8rem;
+            display: inline-block;
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        .hero .label {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: #d9d5cb;
+            padding: 0.2rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: #4f4d47;
+            border: 1px solid #c4bfb3;
+        }
+
+        /* 卡片分区 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 0 0 1px #e8e4dd inset;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 0 0 1px #d6d1c7 inset;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #3f3e38;
+            border-left: 4px solid #b5ae9f;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #525049;
+            margin: 1.6rem 0 0.6rem 0;
+            border-bottom: 1px dotted #ddd9d0;
+            padding-bottom: 0.25rem;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card .meta-note {
+            color: #78756b;
+            font-size: 0.92rem;
+            background: #f3f1ec;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 0.3rem;
+        }
+
+        /* 特点短列表 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.6rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.4rem;
+            font-size: 1rem;
+            color: #3d3b36;
+        }
+
+        .feature-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #a59e8e;
+        }
+
+        /* 场景卡片内小标签 */
+        .scene-tag {
+            display: inline-block;
+            background: #f0ede6;
+            border: 1px solid #d6d0c5;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #55524b;
+            margin-right: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* 访问提示区域 */
+        .visit-note {
+            background: #ece9e1;
+            border-radius: 18px;
+            padding: 1.8rem 2.2rem;
+            border: 1px solid #d4cec2;
+            margin-top: 1rem;
+            margin-bottom: 2.2rem;
+            text-align: center;
+        }
+
+        .visit-note p {
+            font-size: 1.05rem;
+            color: #3a3934;
+            margin-bottom: 0.5rem;
+        }
+
+        .visit-note .sig {
+            font-style: italic;
+            color: #6b685e;
+            font-size: 0.95rem;
+            margin-top: 0.6rem;
+        }
+
+        .faq-mini {
+            background: #fcfcfa;
+            border-radius: 14px;
+            padding: 1.4rem 1.8rem;
+            border: 1px solid #e0dbd1;
+            margin-top: 1.6rem;
+        }
+
+        .faq-mini dt {
+            font-weight: 400;
+            color: #3d3b34;
+            margin-bottom: 0.2rem;
+            padding-left: 0.3rem;
+            border-left: 2px solid #bfb8a9;
+            padding-left: 0.7rem;
+        }
+
+        .faq-mini dd {
+            margin-left: 1rem;
+            margin-bottom: 0.7rem;
+            color: #5b5951;
+            font-size: 0.96rem;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #959086;
+            border-top: 1px solid #ded9cf;
+            padding-top: 1.4rem;
+            margin-top: 1.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        a {
+            color: #6d695d;
+            text-decoration: none;
+            border-bottom: 1px solid #c6c0b3;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #3f3d35;
+            border-bottom-color: #8f887a;
+        }
+
+        .inline-link {
+            border-bottom: 1px solid #bbb3a5;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .card h2 {
+                font-size: 1.4rem;
+                padding-left: 0.7rem;
+            }
+
+            .visit-note {
+                padding: 1.2rem 1rem;
+            }
+
+            .feature-list {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 杂志横幅 -->
+    <div class="hero">
+        <h1>赏金女王</h1>
+        <div class="sub">重返与守望 · 专题笔记</div>
+        <div class="label">vol. 02 · 再访</div>
+    </div>
+
+    <!-- 第一段：再次访问的缘起 -->
+    <div class="card">
+        <h2>再次走向同一个名字</h2>
+        <p>有些名字，第一次遇见是偶然，第二次则带着某种不自觉的牵引。对于许多关注者而言，<a href="https://panel-pg-queenofbounty.com">赏金女王</a>便是这样一个存在。它不是浮于表面的标签，而是一种可以反复回望的坐标——每一次刷新，都像是翻开同一本书的不同章节，细节在熟悉与陌生之间轻微摆动。</p>
+        <p>这种重复并非机械，而更像是与一个固定场域之间的对话。你带着上次的记忆回来，发现页面布局、信息层次乃至色彩的明暗都藏着之前未注意的笔触。再次访问的意义，或许就在于那些被忽略的角落逐渐清晰。</p>
+    </div>
+
+    <!-- 第二段：收藏与持续关注 -->
+    <div class="card">
+        <h2>收藏夹里的坐标</h2>
+        <p>将某个链接收藏，往往意味着一种温和的承诺：我还会回来。在浏览器的书签栏里，<span class="inline-link">赏金女王</span>的条目静静排列，它不催促，不闪烁，只是在你某天打开收藏夹时，提供一个可以前往的安静选项。持续关注不需要理由，它更像一种习惯——偶尔点开，看看内容是否有微调，或者仅仅是让页面在屏幕上停留片刻，感受那种不变的基调。</p>
+        <p>这样的关注并不浓烈，却足够持久。它不依赖推送或提醒，而是源自个人主动的回顾。收藏本身已是一种投票，表明这个位置值得被记住。</p>
+
+        <h3>一些值得留意的细节</h3>
+        <ul class="feature-list">
+            <li>信息结构保持一贯的秩序感</li>
+            <li>色调在稳重中带有不易察觉的层次</li>
+            <li>每次返回都可能发现之前忽略的条目</li>
+        </ul>
+        <div class="meta-note">—— 来自多次访问者的观察</div>
+    </div>
+
+    <!-- 第三段：不同场景下的翻阅方式 -->
+    <div class="card">
+        <h2>三种翻阅的节奏</h2>
+        <p>不同时刻打开同一页面，心态也截然不同。清晨或许只是快速扫视，确认版面是否依旧整洁；午后的间隙里则愿意逐行阅读，那些陈述句像是老朋友的口吻；深夜的访问往往最安静，光标在链接上停留，却不急于点下——只是让那个名叫<a href="https://panel-pg-queenofbounty.com">赏金女王</a>的页面占据屏幕中央，像一幅定格的版画。</p>
+        <p>这些场景并不特殊，却构成了持续关注的真实肌理。不需要计划，也不需要理由，访问本身已经足够。</p>
+        <div>
+            <span class="scene-tag">清晨 · 快速浏览</span>
+            <span class="scene-tag">午后 · 逐段阅读</span>
+            <span class="scene-tag">深夜 · 安静停留</span>
+        </div>
+    </div>
+
+    <!-- 访问提示区域 + FAQ 摘要 -->
+    <div class="visit-note">
+        <p>如果你已经收藏过这个地址，那么此刻正是再次打开的时机。</p>
+        <p>如果这是第一次留意到<span style="border-bottom: 1px solid #bbb3a5;">赏金女王</span>，不妨把它加入书签，留待下次安静翻阅。</p>
+        <div class="sig">—— 页面不会主动变化，但你的每次回访都会让它有所不同</div>
+
+        <div class="faq-mini">
+            <dl>
+                <dt>问：为什么值得再次访问？</dt>
+                <dd>答：页面本身的稳定性让每次回访都有一种熟悉的安心，而细微的调整则留给有心人慢慢发现。</dd>
+                <dt>问：我应该以什么频率关注？</dt>
+                <dd>答：没有固定频率。想起时打开即可，收藏夹里的链接不会消失，它会一直在那里。</dd>
+                <dt>问：如何最快找到它？</dt>
+                <dd>答：将 <a href="https://panel-pg-queenofbounty.com">赏金女王</a> 加入浏览器书签栏，或者直接记住这个地址。</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- 页尾 -->
+    <div class="footer-note">
+        杂志专题 · 赏金女王 · 再访篇
+    </div>
+
+</div>
+</body>
+</html>
